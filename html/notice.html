@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../layui/css/layui.css">
+	<title></title>
+</head>
+<body style="background-color:#eee;">
+	<div style="width: 80%; margin-left:10%; margin-top:20px; text-align: center;">
+        <input type="text" name="title" id="title" required  lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+    </div>
+    <div style="width:80%;margin-left:10%;margin-top:12px;background-color:#fff;">
+        <textarea id="txt" style="display:none;"></textarea>
+    </div>
+    <div style="text-align: center;">
+
+    	<input type="button" value="确认" id="btn1" class="layui-btn" data-type="content" style="margin-left:5%;margin-top:20px;" />
+    </div>
+    
+    <script src="../layui/layui.js"></script>
+    <script type="text/javascript">
+        // var str1=$("#str").val();
+        // console.log(str1);
+        layui.use('layedit', function () {
+            var layedit = layui.layedit;
+ 			console.log("ss");
+            layedit.set({
+                uploadImage: {
+                    url: '../php/notice_image.php' //接口url
+                  , type: 'post' //默认post
+                }
+            });
+ 
+            var editIndex = layedit.build('txt', {
+                height: 330
+            });
+ 
+            document.getElementById('btn1').onclick = function () {
+                str=(layedit.getContent(editIndex));
+                title=$('#title').val();
+                
+                if(str==''||title==''){
+                    alert('标题或内容不能为空！');
+                }
+                else{
+                    console.log(title);
+                    $.ajax({
+
+                        url: '../php/notice_insert.php',
+                        async: false,  // 取消异步，因为只有先得到总记录数，才能计算实际需要多少页
+                        type: 'POST',
+                        dataType: 'json',
+                        data:{str:str,title:title},
+                        success: function(data){
+                        }
+                    });
+                    alert('公告发布成功！');
+                    $(".maincontent").load("notice_admin.html");
+                }
+            }
+        });
+</script>
+<script src="../js/jquery-3.4.1.min.js"></script>
+</body>
+</html>
+
+    

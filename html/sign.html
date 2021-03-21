@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../css/back.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>注册</title>
+</head>
+<body id="index">
+	<div class='a'>
+		<form action="../php/sign.php" method="post" accept-charset="utf-8">
+		<h1>用户注册</h1>
+		<label for="name">用户名:</label>
+        <input type="text" id="username" name="username" value="" placeholder="请输入用户名"/><br>
+		<br>
+		<label for="password1">密&emsp;码:</label>
+        <input type="password" id="password1" name="password1" value="" placeholder="请输入密码"/><br>
+        <br>
+        <label for="password2">密&emsp;码:</label>
+        <input type="password" id="password2" name="password2" value="" placeholder="请再次输入密码"/><br>
+		<br>
+		<label>验证码&ensp;
+		 	<input type="text" value="" name="checkNum" placeholder="请输入验证码" autocomplete="off">
+		</label><br>
+        <img src="../php/vaildcode.php" style="width:108px;height:31px;" id="code"/>
+        <br>
+		<input type="submit" name="submit" class="submit1" value="注册">
+		</div>
+	</form>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../css/back.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>登录</title>
+</head>
+<body id="index">
+	<div class='a'>
+		<form action="../php/index.php" method="post" accept-charset="utf-8">
+		<h1>用户登录</h1>
+		<label for="name">用户名:</label>
+        <input type="text" id="username" name="username" value="" placeholder="请输入用户名"/><br>
+		<br>
+		<label for="password">密&emsp;码:</label>
+        <input type="password" id="password" name="password" value="" placeholder="请输入密码"/><br>
+		<br>
+		<label>验证码&ensp;
+		 	<input type="text" value="" name="checkNum" placeholder="请输入验证码" autocomplete="off">
+		</label><br>
+        <img src="../php/vaildcode.php" style="width:108px;height:31px;" id="code"/>
+        <br>
+		<label for="identity">
+		<input type="radio" name="identity" value="user" checked="" class='identity'>用户
+		<input type="radio" name="identity" value="admin" class='identity'>管理员
+		</label><br>
+		<a href="sign.html" id="tosign">注册</a>
+		<br>
+		<input type="submit" name="submit" class="submit" value="登录">
+		<input type="reset" name="reset" value="重置">
+	</form>
+	</div>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+</body>
+</html>

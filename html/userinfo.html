@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="../css/userinfo.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+</head>
+<body>
+	<h2 id="userinfo_n">用户信息</h2>
+	<form action="../php/userinfo.php" method="post"  accept-charset="utf-8" enctype ="multipart/form-data">
+		<div id='left'>
+			<div id='img'></div>	
+			<input type="file" name="photo" id="photo">
+		</div>
+		<div id='right'>
+			<label>用&ensp;户&ensp;名：
+			 	<input type="text" value="" for="infoid" id="infoid" name="infoid" autocomplete="off" disabled>
+			</label><br>
+			<label id="pad">
+				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+				<input type="button" name="" value="修改密码" id="changepassword">
+			</label>
+			<label id="pad1">旧&ensp;密&ensp;码：
+			 	<input type="password" value="" for="oldpad" id="oldpad"  name="oldpad" autocomplete="off" placeholder="请输入旧密码">
+			</label><br>
+			<label id="pad2">新&ensp;密&ensp;码：
+			 	<input type="password" value="" for="newpad" id="newpad"  name="newpad" autocomplete="off" placeholder="请输入新密码">
+			</label><br id="pad3">
+			<label>真实姓名：
+			 	<input type="text" value="" for="infoname" id="infoname" name="infoname" autocomplete="off">
+			</label><br>
+			<label for='sex'>&ensp;性&emsp;别：&ensp;
+				<input type='radio' name='sex' id='men' value='男'>男&ensp; 
+				<input type='radio' name='sex' id='women' value='女'>女
+			</label><br>
+			<label>联系电话：
+			 	<input type="text" value="" for="infotel" id="infotel" name="infotel" autocomplete="off">
+			</label><br>
+			<label>家庭住址：
+			 	<input type="text" value="" for="infoadd" id="infoadd" name="infoadd" autocomplete="off">
+			</label><br>
+			<label>&ensp;E-mail&ensp;：
+			 	<input type="text" value="" for="infoemail" id="infoemail" name="infoemail" autocomplete="off">
+			</label><br>
+			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<input type="submit" name="submit" value="确定" id="infosubmit">
+		</div>
+	</form>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/userinfo.js"></script>
+</body>
+</html>

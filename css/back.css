@@ -1,0 +1,127 @@
+#index{
+	background-image: url(../images/background.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+.a{
+	background-color: rgba(255, 255, 255, 0.5);
+	padding:20px 0;
+	margin-top: 10%;
+	text-align: center;
+}
+#tosign{
+	font-size: 18px;
+}
+.submit{
+	margin-top: 10px;
+}
+.identity{
+	margin-bottom: 10px;
+}
+#tosign:link{
+	text-decoration: none;
+	color: 'blue';
+}
+#tosign:visited{
+	text-decoration: none;
+	color: 'blue';
+}
+.maincontent h1{
+	text-align: center;
+}
+#code{
+	margin: 20px 10px;
+}
+#pic{
+	margin-top: 40px;
+	margin-bottom: 20px;
+	width: 150px;
+	height: 150px;
+	border-style: solid; border-width: 2px;
+	border-color: white;
+}
+.leftmain{
+	background-color: #314076;
+	/*margin-top: 10px;*/
+	text-align: center;
+	width: 200px;
+	margin-left: 15px;
+	height: 100%;
+	float:left;
+	box-shadow: 5px 5px 5px #888888;
+}
+.rightmain{
+	border-style: solid; border-width: 1px; 
+	width: 82%;
+	height: 96%;
+	margin-top: 20px;
+	margin-left: 10px;
+	border-color: #CCC;
+	float:left;
+	box-shadow: 5px 5px 5px #888888;
+}
+#user_name{
+	padding: 15px 0px;
+	color: white;
+    background: #1F284B;
+    margin-bottom: 20px;
+}
+#dd{
+	margin: 10px;
+}
+#dd img{
+	float: left;
+	margin: 8px;
+}
+#dateTime{
+	float: left;
+	margin: 5px;
+}
+#back p{
+	margin-right: 8px;
+	display: inline;
+}
+#back{
+	float: right;
+	margin-top: 4px;
+	margin-right: 15px;
+}
+.clear{
+	clear: both;
+}
+.main a{
+	color: white;
+	height: 38px;
+    font-size: 22px;
+    display: block;
+    margin-bottom: 15px;
+    text-decoration: none;
+    height: 60px;
+    line-height: 60px;
+}
+.main a:link {
+	/*background-color: rgba(255, 255, 255, 0.5);*/
+	text-decoration: none;
+}
+.main a:visited {
+	background-color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+} 
+.main a:hover {
+	background-color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+} 
+.main a:active {
+	background-color: rgba(255, 255, 255, 0.5);
+	text-decoration: none;
+} 
+.maincontent div img{
+	width:800px;
+	height: auto; 
+	text-align: center;
+}
+.maincontent div h2{
+	text-align: center;
+}

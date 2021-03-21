@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../layui/css/layui.css">
+	<title></title>
+</head>
+<body>
+	<h2 style="margin: 10px auto; text-align: center;">健康数据</h2>
+	<form action="../php/health.php" method="post" accept-charset="utf-8">
+		<div style="padding: 20px; background-color: #F2F2F2;margin: 0 10px;">
+		  	<div class="layui-row layui-col-space15">
+
+		  		<div class="layui-col-md6">
+			      <div class="layui-card">
+			        <div class="layui-card-header">身高</div>
+			        <div class="layui-card-body">
+			          <input id="edit_height" name="tall" type="text" style="width: 100px; margin-bottom: 8px" placeholder="请输入身高">&emsp;cm<br>
+			        </div>
+			      </div>
+			    </div>
+
+			    <div class="layui-col-md6">
+			      <div class="layui-card">
+			        <div class="layui-card-header">体重</div>
+			        <div class="layui-card-body">
+			          <input id="edit_weight" name="weight" type="text" style="width: 100px; margin-bottom: 8px" placeholder="请输入体重">&emsp;kg<br>
+			        </div>
+			      </div>
+			    </div>
+
+			    <div class="layui-col-md6">
+			      <div class="layui-card">
+			        <div class="layui-card-header">体温</div>
+			        <br>
+			        <div class="layui-card-body">
+			          <input id="edit_temperature" name="tep" type="text" style="width: 100px; margin-bottom: 8px;" placeholder="请输入体温">&emsp;℃
+			          <br>
+			        </div>
+			      </div>
+			    </div>
+
+			    <div class="layui-col-md6">
+			      <div class="layui-card">
+			        <div class="layui-card-header">血压</div>
+			        <br>
+			        <div class="layui-card-body">
+			          <input id="edit_spressure" name="sbp" type="text" style="width: 80px;" placeholder="收缩压">&nbsp;/&nbsp;<input id="edit_dpressure" name="dbp" type="text" style="width: 80px; margin-bottom: 8px;" placeholder="舒张压">&emsp;mmHg<br>
+			        </div>
+			      </div>
+			    </div>
+
+			    <div class="layui-col-md6">
+			      <div class="layui-card">
+			        <div class="layui-card-header">心率</div>
+			        <div class="layui-card-body">
+			          <input id="edit_heartRate" name="rate" type="text" style="width: 100px; margin-bottom: 8px;" placeholder="请输入心率">&emsp;次/分<br>
+			        </div>
+			      </div>
+			    </div>
+
+			    <div class="layui-col-md6">
+			      <div class="layui-card">
+			        <div class="layui-card-header">今天是否运动</div>
+			        <div class="layui-card-body">
+						<label for="sport" style="margin-top: 4px; margin-bottom: 8px">
+							<input type="radio" name="sport" class="sport" value="是">是&ensp;
+							<input type="radio" name="sport" class="sport" value="否">否
+						</label>
+						<br>
+			        </div>
+			      </div>
+			    </div>
+			</div>
+		</div>
+		<div style="text-align: center;margin: 15px;">
+			<input type="submit" name="submit" value="确认" class="btn btn-default">
+		</div>
+	</form>
+ 	
+		<!-- <textarea class="layui-textarea" id="LAY_demo1" style="display: none">  
+            把编辑器的初始内容放在这textarea即可
+        </textarea>
+         <script src="../layui/layui.js"></script>
+        <script>
+            layui.use('layedit', function(){
+                var layedit = layui.layedit
+                ,$ = layui.jquery;
+
+                //构建一个默认的编辑器
+                var index = layedit.build('LAY_demo1');
+            });
+        </script> -->
+	<script src="../js/jquery-3.4.1.min.js"></script>
+</body>
+</html>

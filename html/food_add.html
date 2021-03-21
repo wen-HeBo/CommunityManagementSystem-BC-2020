@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" href="../layui/css/layui.css">
+	<title></title>
+</head>
+<body>
+	<div class="layui-row" style="text-align: center;">
+	   	<h2 style="margin-top: 20px;margin-bottom: 10px;">添加菜品</h2>
+	   	<div style="float: right; margin-right: 130px;">
+	   		<button type="button" class="layui-btn layui-btn-sm" style="background-color: #314076" id="food_select">
+	  			<i class="layui-icon">&#xe63c;</i> 查询菜品
+			</button>
+	   		<button type="button" class="layui-btn layui-btn-sm" style="background-color: #314076" id="food_add">
+	  			<i class="layui-icon">&#xe608;</i> 添加菜品
+			</button>
+	   	</div>
+		
+		<form action="../php/food_add.php" method="post"  accept-charset="utf-8" enctype ="multipart/form-data">
+
+	    <div class="layui-col-md10" style="margin: 0 90px; " id="foodm">
+	       	<div class='layui-col-md6' style='margin: 15px 5px' id="img">
+	       		<img src= " " class='img-thumbnail' style='width: 100%; height: 25vw; margin-bottom: 8px' >
+	       	</div>
+			
+			<div class='layui-col-md5' style='text-align: left; margin-left: 50px;'>
+				<div class='layui-card' style='margin: 15px 5px; height: 25vw'>
+					<div class='layui-card-header' style='background-color: #2F4056; color: white;height: 90px;padding-top:10px;'>
+						<h3>编号:</h3>&ensp;
+						<input type="text" name="fid" value="" placeholder="" style="height: 28px;margin-top:10px;margin-left: 20px; color: black;">
+					</div>
+					<div class='layui-card-body' >
+						<h3>名称：</h3>
+						
+						<input type="text" name="fname" value="" placeholder="" style="margin: 15px 30px;">
+						<br>
+
+						<h3>价格：</h3>
+						<input type="text" name="price" value="" placeholder="￥" style="margin: 15px 30px;">
+					</div>
+				</div>
+			</div>
+	    </div> 
+	    <div class="layui-col-md10" style="margin: 0 90px;">
+	    	<div class="layui-col-md6" style='text-align: center;'>
+	    		<input type="file" name="photo" id="photo" style="margin:0 auto;">
+	    	</div>
+	    	<div class="layui-col-md5" style='text-align: center; margin-left: 50px;'>
+	    		<input type="submit" name="submit" value="确定" id="infosubmit" class="layui-btn layui-btn-sm" style="background-color: #314076">
+	    	</div>
+	    </div>
+
+	    </form>
+	       
+	       <div id="page" style="text-align: center;"></div>
+	   </div>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../js/food_add.js"></script>
+</body>
+</html>

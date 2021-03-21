@@ -1,0 +1,27 @@
+#userinfo_n{
+	text-align: center;
+}
+#phto{
+	width: 250px;
+	height: 250px;
+	border-style: solid; border-width: 1px;
+	border-color: black;
+}
+#photo{
+	margin-top: 40px;
+	margin-left: 30px;
+}
+#left{
+	margin-top: 40px;
+	margin-left: 150px;
+	width:300px;
+	float:left;
+}
+#right{
+	margin-top: 20px;
+	width:50%;
+	float: right;
+}
+#right input{
+	margin-top: 17px;
+}
