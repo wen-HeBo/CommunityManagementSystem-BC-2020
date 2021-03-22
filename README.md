@@ -5,14 +5,14 @@
 此项目是基于layui构建的智能社区管理系统，由用户端和管理端组成，实现功能以达到便利于民的目的。<br>
 <br>
 ## 目录结构<br>
-├─css&emsp;//样式文件<br>
-├─database&emsp;//数据库<br>
-&nbsp;|&emsp;&emsp;├─database.sql&emsp;//数据库导入文件<br>
+├─css&emsp;//样式文件  
+├─database&emsp;//数据库  
+|&emsp;&emsp;├─database.sql&emsp;//数据库导入文件<br>
 &nbsp;|&emsp;&emsp;│─ER图.png&emsp;//数据库ER图 <br>
 &nbsp;|&emsp;&emsp;└─[DATABASE.md](database/DATABASE.md)&emsp;//数据库说明 <br>
 ├─html&emsp;//html页面<br> 
 ├─images&emsp;//图片<br>
-│  └─imgUploads&emsp;//上传文件<br>
+│&emsp;&emsp;└─imgUploads&emsp;//上传文件<br>
 ├─js&emsp;//javas<br>
 ├─layui&emsp;//layui开发包<br>
 ├─php&emsp;//脚本文件<br>

@@ -7,7 +7,7 @@
 | PHOTO（头像） |	varchar| 64 | 住户的头像 | 否 |
 | UPASSWORD（密码）	| varchar | 20	| 登陆密码 | 否 |
 | NAME（真实姓名 ）| varchar | 5 | 住户真实姓名 | 否 |
-| SEX（性别） | char | 1 | 住户性别 | 否 |
+| SEX（性别） | char | 1 | 住户性别 | 否 | 
 | TEL（联系方式） | varchar | 12 | 住户的联系方式 | 否 |
 | ADD（住址） |	varchar | 30 | 住户的具体地址 |	否 |
 | EMAIL	| varchar	| 25 | 住户的邮箱地址 |	否 |
