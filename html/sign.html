@@ -1,34 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="../layui/css/layui.css">
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/back.css">
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>注册</title>
 </head>
 <body id="index">
-	<div class='a'>
-		<form action="../php/sign.php" method="post" accept-charset="utf-8">
-		<h1>用户注册</h1>
-		<label for="name">用户名:</label>
-        <input type="text" id="username" name="username" value="" placeholder="请输入用户名"/><br>
-		<br>
-		<label for="password1">密&emsp;码:</label>
-        <input type="password" id="password1" name="password1" value="" placeholder="请输入密码"/><br>
-        <br>
-        <label for="password2">密&emsp;码:</label>
-        <input type="password" id="password2" name="password2" value="" placeholder="请再次输入密码"/><br>
-		<br>
-		<label>验证码&ensp;
-		 	<input type="text" value="" name="checkNum" placeholder="请输入验证码" autocomplete="off">
-		</label><br>
-        <img src="../php/vaildcode.php" style="width:108px;height:31px;" id="code"/>
-        <br>
-		<input type="submit" name="submit" class="submit1" value="注册">
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color:  #31407600; border: 0;">
+		<div class="container-fluid">
+		  <div class="navbar-header">
+			<a class="navbar-brand" href="#">
+				<div style="display: flex; justify-content: center;align-items: center;">
+					<img alt="Brand" src="../images/home.png" style="height: 30px; width: 30px; margin-right: 5px;">
+					<span style="height: 25px; padding-top: 8px;color: white;">杭城市区</span>
+				</div>
+			</a>
+		  </div>
 		</div>
-	</form>
+	</nav>
+
+	<div class="rolling">
+		<h1 id="welcome" class="text-center" style="color:white; font-size: 50px; margin-bottom: 20px;">欢迎回家</h1> 
+		<div class="layui-carousel" id="test1">
+			<div carousel-item class="rollingImage">
+			  <div><img src="../images/index1.jpeg" alt=""></div>
+			  <div><img src="../images/index2.jpeg" alt="">2</div>
+			  <div><img src="../images/index3.jpeg" alt=""></div>
+			  <div><img src="../images/index5.jpeg" alt=""></div>
+			  <div><img src="../images/index4.jpeg" alt=""></div>
+			</div>
+		  </div>
+	</div>
+
+	<div class='a'>
+		<form action="../php/sign.php" method="post" accept-charset="utf-8" class="form-horizontal">
+			<h1>用户注册</h1>
+			<div class="form-group">
+				<label for="name" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">用户名</label>
+				<div class="col-sm-9">
+					<input type="text" id="username" class="form-control" name="username" value="" placeholder="请输入用户名"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password1" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">密&emsp;码</label>
+				<div class="col-sm-9">
+					<input type="text" id="username" class="form-control" name="username" value="" placeholder="请输入用户名"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="password2" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">密&emsp;码</label>
+				<div class="col-sm-9">
+					<input type="password" id="password2" class="form-control" name="password2" value="" placeholder="请再次输入密码"/>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">验证码</label>
+				<div class="col-sm-9">
+					<input type="text" value="" class="form-control" name="checkNum" placeholder="请输入验证码" autocomplete="off">
+				</div>
+			</div>
+			<div class="form-group">
+				<img src="../php/vaildcode.php" style="width:108px;height:31px;" id="code"/>
+			</div>
+			<div class="form-group">
+				<input type="submit" name="submit" class="submit1 btn btn-success" value="注册">
+			</div>
+		</form>
 	</div>
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script src="../layui/layui.js"></script>
+	<script>
+		layui.use('carousel', function(){
+			var carousel = layui.carousel;
+			//建造实例
+			carousel.render({
+				elem: '#test1'
+				,width: '60%' //设置容器宽度
+				,arrow: 'always' //始终显示箭头
+				//,anim: 'updown' //切换动画方式
+			});
+			//触发轮播切换事件
+			carousel.on('change(test1)', function(obj){ //test1来源于对应HTML容器的 lay-filter="test1" 属性值
+			console.log(obj.index); //当前条目的索引
+			console.log(obj.prevIndex); //上一个条目的索引
+			console.log(obj.item); //当前条目的元素对象
+			});     
+		});
+	</script>
 </body>
 </html>
