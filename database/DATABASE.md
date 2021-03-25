@@ -1,5 +1,16 @@
 # **数据库设计**
+
+## 说明——基于MySQL  
+> $DB_HOST = '127.0.0.1';  
+> $DB_USER = 'root';  
+> $DB_PASSWORD = '';  
+> $DB_NAME = 'database';  
 ---
+
+## ER图
+![ER图](../images/ER图.png)  
+* 说明：建议表未加入  
+
 ##  <center>USER（普通用户表)</center>
 | 字段名称 | 数据类型 | 长度 | 字段含义 | 是否主键 |
 | --- | --- | --- | --- | --- |
@@ -57,3 +68,9 @@
 | UID（用户名） | varchar |	20 | 订餐的用户 | 是 |
 | OHDATE（日期） | datetime | 6 | 订餐的日期 |	是 |
 | OHID（编号） | char | 3 | 订餐的菜品编号 | 否 |
+
+## <center>ADVISE（建议表）</center>
+| 字段名称	| 数据类型	| 长度	| 字段含义	| 是否主键 |
+| --- | --- | --- | --- | --- |
+| SYMPTOM（症状） | varchar | 255 | 身体表现的症状 | 是 |
+| ADVICE（建议） | varchar | 255 | 不同症状的建议 | 否 |

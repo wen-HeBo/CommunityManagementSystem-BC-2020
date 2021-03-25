@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="../css/back.css">
+	<script src="../js/jquery.idTabs.min.js"></script>
+    <script src="../js/jquery.cookie.js"></script>
+    <script src="../js/utils.js"></script>
+    <script type="text/javascript" src="../js/echarts.min.js"></script>
+    <script type="text/javascript" src="../js/roma.js"></script>
+</head>
+<body>
+    <div style="display: flex;align-items: center;justify-content: center;">
+		<h2 style="display: flex; margin: 10px auto; text-align: center;">健康数据 
+			<div style="position: absolute; right: 0; padding-right: 30px;">
+				<button class="btn btn-primary" id="health" onclick="$('.maincontent').load('health.html');" style="margin-right: 5px;">健康打卡</button>
+				<button class="btn btn-primary" id="health_data" disabled="disabled" style="margin-right: 5px;">健康数据</button>
+				<button class="btn btn-primary" id="health_advice" onclick="$('.maincontent').load('health_advice.html');" style="margin-right: 5px;">健康建议</button>
+			</div>
+		</h2>
+	</div>
+	<div style="display: flex; height: 450px; align-items: center; justify-content: center; flex-wrap: wrap;">
+		<div id="temperature" style="width:45%;height: 50%;"></div>
+		<div id="rate" style="width: 45%;height: 50%;"></div>
+		<div id="sd" style="width: 45%;height: 50%;"></div>
+		<div id="wh" style="width: 45%;height: 50%;"></div>
+	</div>
+	
+    <script type="text/javascript">
+
+    var $u_login = getCookie('name');
+    
+        // 基于准备好的dom，初始化echarts实例
+       var myChart_r = echarts.init(document.getElementById('rate'),'roma');
+	   var myChart_t = echarts.init(document.getElementById('temperature'),'roma');
+	   var myChart_sd = echarts.init(document.getElementById('sd'),'roma');
+	   var myChart_wh = echarts.init(document.getElementById('wh'),'roma');
+
+        var a_id=[], a_date=[], a_rate=[], a_temp=[], a_dbp=[], a_sbp=[], a_tall=[], a_weight=[], a_bmi=[], count=1;
+        function aTest(){
+            $.ajax({
+                type:"post",
+                async:false,
+                url:"../php/health_data.php",
+                data:{},
+                dataType:"json",
+                success:function(result){
+                    if (result){
+                        for(var i=result.length-7; i<result.length; i++){
+                            if (result[i].id === $u_login){
+                                if(count<=7){
+                                    a_id.push(result[i].id);
+                                    reg = /^(\d{4})-(\d{1,2})-(\d{1,2})$/;
+                                    d = result[i].date;
+                                    dateStr = d.substring(5,7)+"."+d.substring(8,11);
+                                    console.log(dateStr);
+                                    a_date.push(dateStr);
+                                    a_rate.push(result[i].rate);
+									a_temp.push(result[i].temp);
+									a_dbp.push(result[i].dbp);
+                                    a_sbp.push(result[i].sbp);
+									a_tall.push(result[i].tall);
+                                    a_weight.push(result[i].weight);
+                                    a_bmi.push(result[i].weight/(result[i].tall/100)^2);
+                                    count = count + 1;
+                                }
+                                else{
+                                    i = -1;
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+            return a_id, a_date, a_rate, a_temp, a_dbp, a_sbp, a_tall, a_weight, a_bmi, count;
+        }
+        aTest();
+
+        // 指定图表的配置项和数据
+		var option1 = {
+            title: {
+                text: '体温'
+            },
+            x:'center',
+            y:'bottom',
+            tooltip: {},
+            legend: {
+                data:['体温']
+            },
+            xAxis: {
+                data: a_date
+            },
+            yAxis: {},
+            series: [{
+                name: '体温',
+                type: 'line',
+                data: a_temp
+            }]
+
+        };
+        var option2 = {
+            title: {
+                text: '心率'
+            },
+            tooltip: {},
+            legend: {
+                data:['心率']
+            },
+            xAxis: {
+                data: a_date
+            },
+            yAxis: {},
+            series: [{
+                name: '心率',
+                type: 'bar',
+                data: a_rate
+            }]
+        };
+		var option3 = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                        type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['舒张压', '收缩压']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: a_date,
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value'
+                    }
+                ],
+                series: [
+                    {
+                        name: '舒张压',
+                        type: 'bar',
+                        barWidth: 5,
+                        stack: '血压',
+                        data: a_dbp,
+                        // console.log(json);
+                    },
+                    {
+                        name: '收缩压',
+                        type: 'bar',
+                        stack: '血压',
+                        data: a_sbp,
+                    }
+                ]
+            };
+			var option4 = {
+				title: {
+				},
+				tooltip: {},
+				legend: {
+					data: ['身高', '体重','BMI']
+				},
+				radar: {
+					// shape: 'circle',
+					name: {
+						textStyle: {
+							color: '#fff',
+							backgroundColor: '#999',
+							borderRadius: 3,
+							padding: [2, 4]
+						}
+					},
+					indicator: [
+						{ name: a_date[0], max: 220},
+						{ name: a_date[1], max: 220},
+						{ name: a_date[2], max: 220},
+						{ name: a_date[3], max: 220},
+						{ name: a_date[4], max: 220},
+						{ name: a_date[5], max: 220},
+						{ name: a_date[6], max: 220}
+					]
+				},
+				series: [{
+					name: '每日情况',
+					type: 'radar',
+					// areaStyle: {normal: {}},
+					data: [
+						{
+							value: a_tall,
+							name: '身高'
+						},
+						{
+							value: a_weight,
+							name: '体重'
+						},
+						{
+							value: a_bmi,
+							name: 'BMI'
+						}
+					]
+				}]
+			};
+
+        myChart_r.setOption(option2,true);
+		myChart_t.setOption(option1,true);
+		myChart_sd.setOption(option3,true);
+		myChart_wh.setOption(option4,true);
+    </script>
+</html>

@@ -1,0 +1,89 @@
+html {
+    font-family: sans-serif;
+}
+
+#aMeal{
+    z-index: 1;
+}
+
+#aMeal {
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    padding: 0 15px 15px;
+    align-items: center;
+}
+
+#cMeal {
+    border-bottom: 2px solid #eee;
+    font-weight: normal;
+    text-align: center;
+}
+
+#wMeal {
+    display: flex;
+    height: 350px;
+    width: 232px;
+    flex-direction: column;
+    transition: all .5s ease;
+    border-radius: 2px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+#wMeal:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    transform: translate3d(0, -4px, 0);
+}
+
+#wMeal header {
+    flex: 150;
+    background: white;
+    display: flex;
+    padding: 25px 20px 0;
+    flex-direction: column;
+    color: #222;
+}
+
+#wMeal header h5 {
+    /*align-self: center;*/
+    font-weight: normal;
+}
+
+#wMeal header span {
+    align-self: flex-end;
+    font-size: 14px;
+}
+
+#wMeal article,
+#wMeal footer {
+    color: white;
+}
+
+#wMeal article {
+    background: #3388E4;
+    flex: 100;
+    padding: 15px;
+    font-size: 14px;
+}
+
+#wMeal footer {
+    background: #3388E4;
+    flex: 25;
+    display: flex;
+    padding: 5px 15px;
+    flex-direction: row;
+}
+
+#wMeal footer span {
+    font-size: 9px;
+}
+
+#wMeal footer .clock {
+    flex: 1.5;
+}
+
+#wMeal footer .like {
+    flex: 0.5;
+    text-align: right;
+}

@@ -81,7 +81,7 @@ function showRecord(pindex){
                     data: {atime: atime, head: head}, // 提交数据
                     success: function(data){
                         $.each(data, function(){
-                            str+="<div style='margin-left: 30px; height:500px;overflow-y: scroll;'><h2>"+this['AHEADE']+"</h2>";
+                            str+="<h2 style='text-align: center;'>"+this['AHEADE']+"</h2>"+"<div class='noinfo' style='height:450px;overflow-y: scroll;'>";
                             str+=this['ABODY']+"</div>";
                         });
                         $(".maincontent").empty();
@@ -108,7 +108,7 @@ function showRecord(pindex){
                         $.each(data, function(){
                             str1=this['AHEADE'];
                             str2=this['ABODY'];
-                            
+                            str3=this['ADATE']
                         });
                          
                         $(".maincontent").load("notice.html");
@@ -118,23 +118,9 @@ function showRecord(pindex){
                             dataType:"html",
                             success:function(result){
                                 $("#title").val(str1);
-                                $("textarea").html(str2)
+                                $("#att").text(str3);
                             }
                         });
-
-                        $.ajax({
-                            url: '../php/notice_delete.php',
-                            async: false,  // 取消异步，因为只有先得到总记录数，才能计算实际需要多少页
-                            type: 'POST',
-                            dataType: 'json',
-                            data: {atime: atime, head: head}, // 提交数据
-                            success: function(data){
-                            },
-                            error: function() {
-                                alert("error");
-                            }
-                        }); 
-
                     },
                     error: function() {
                         alert("error");

@@ -23,36 +23,28 @@
 		</div>
 	</nav>
 
-	<div class="rolling">
-		<h1 id="welcome" class="text-center" style="color:white; font-size: 50px; margin-bottom: 20px;">欢迎回家</h1> 
-		<div class="layui-carousel" id="test1">
-			<div carousel-item class="rollingImage">
-			  <div><img src="../images/index1.jpeg" alt=""></div>
-			  <div><img src="../images/index2.jpeg" alt="">2</div>
-			  <div><img src="../images/index3.jpeg" alt=""></div>
-			  <div><img src="../images/index5.jpeg" alt=""></div>
-			  <div><img src="../images/index4.jpeg" alt=""></div>
-			</div>
-		  </div>
+	<div class="rollings">
+		<h1 id="welcome" style="color:white; font-size: 50px; margin-bottom: 20px;">欢迎回家</h1> 
+		<h1 style="color: white;">智能健康社区管理系统</h1>
 	</div>
 	
 	<div class='a'>
 		<form action="../php/index.php" method="post" accept-charset="utf-8" class="form-horizontal">
-		<h1>用户登录</h1>
+		<h1 style="color: white;">用户登录</h1>
 		<div class="form-group">
-			<label  for="name" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">用户名</label>
+			<label  for="name" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;color: white;">用户名</label>
 			<div class="col-sm-9">
 				<input type="text" id="username" class="form-control" name="username" value="" placeholder="请输入用户名">
 			</div>
 		</div>
 		<div class="form-group">
-			<label for="password" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">密&emsp;码</label>
+			<label for="password" class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;color: white;">密&emsp;码</label>
 			<div class="col-sm-9">
 				<input type="password" id="password" class="form-control" name="password" value="" placeholder="请输入密码"/>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;">验证码</label>
+			<label class="col-sm-3 control-label" style="padding: 0 5px;height: 34px;line-height: 34px;color: white;">验证码</label>
 			<div class="col-sm-9">
 				<input type="text" value="" class="form-control" name="checkNum" placeholder="请输入验证码" autocomplete="off">
 			</div>
@@ -61,13 +53,13 @@
        		<img src="../php/vaildcode.php" style="width: 108px; height: 31px;" id="code"/>
 		</div>
 		<div class="form-group">
-			<label for="identity">
-				<input type="radio" name="identity" value="user" checked="" class='identity'>用户
-				<input type="radio" name="identity" value="admin" class='identity' style="margin-left: 10px">管理员
+			<label for="identity" style="color: white;">
+				<input type="radio" name="identity" value="user" checked="" class='identity' >用户
+				<input type="radio" name="identity" value="admin" class='identity' style="margin-left: 10px" >管理员
 			</label>
 		</div>
 		<div class="form-group">
-			<a href="sign.html" id="tosign">注册</a>
+			<a href="sign.html" id="tosign" style="color: white;">注册</a>
 		</div>
 		<div>
 			<input type="submit" name="submit" class="submit btn btn-info" value="登录" style="margin-right: 15px;">
@@ -77,24 +69,5 @@
 	</div>
 	<script src="../js/jquery-3.3.1.min.js"></script>
 	<script src="../js/jquery-3.4.1.min.js"></script>
-	<script src="../layui/layui.js"></script>
-	<script>
-		layui.use('carousel', function(){
-			var carousel = layui.carousel;
-			//建造实例
-			carousel.render({
-				elem: '#test1'
-				,width: '50%' //设置容器宽度
-				,arrow: 'always' //始终显示箭头
-				//,anim: 'updown' //切换动画方式
-			});
-			//触发轮播切换事件
-			carousel.on('change(test1)', function(obj){ //test1来源于对应HTML容器的 lay-filter="test1" 属性值
-			console.log(obj.index); //当前条目的索引
-			console.log(obj.prevIndex); //上一个条目的索引
-			console.log(obj.item); //当前条目的元素对象
-			});     
-		});
-	</script>
 </body>
 </html>

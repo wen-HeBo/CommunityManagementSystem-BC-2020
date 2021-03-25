@@ -1,50 +1,40 @@
 <?php 
-	define('DB_HOST', '127.0.0.1');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_NAME','database');
-	session_start();//启用session
-	header("Content-Type: text/html;charset=utf-8"); //设置编码格式为utf-8
-	date_default_timezone_set('PRC'); //调整时区
-	$dbc = mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-	if(isset($_COOKIE['name'])){
-		$oldid=$_COOKIE['name'];
-	}
 	if(isset($_POST["index"])){
   		$pageIndex = $_POST["index"];
 	}
 	if(isset($_POST["size"])){
   		$pageSize = $_POST["size"];
 	}
-	// 首次查询，只需要得到记录数量即可
+
+	$host = "127.0.0.1";   // 服务器地址 
+    $username = "root";   // 用户名
+    $password = "";  // 密码
+    $databaseName = "database";  // 数据库名
+	
 	if($pageIndex==0){
 		$query = "select count(*) from annou order by ADATE  desc";
 		// 连接数据库
-		$conn = db_connection(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+		$conn = db_connection($host, $username, $password, $databaseName);
 		// 执行查询操作
 		$result = $conn->query($query);
 
 		echo json_encode(array("total"=>mysqli_fetch_array($result)['0']));
 	}
 	else{
-		$startRowNum = ($pageIndex-1) * $pageSize;  
-		$numOfRows = $pageSize;  // 返回的最多行数
-		$query = "select * from annou order by ADATE  desc limit ".$startRowNum.",".$numOfRows;
+
+		$query = "select * from annou order by ADATE desc";
 		// 连接数据库
-		$conn = db_connection(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
+		$conn = db_connection($host, $username, $password, $databaseName);
 		// 执行查询操作
 		$result = $conn->query($query);
 
-		$teachers = array();
+		$announcement = array();
 		while($row = mysqli_fetch_array($result)){
-		    array_push($teachers, $row);
+	        array_push($announcement, $row);
 		}
-
-		echo json_encode($teachers);
-	}	
+		echo json_encode($announcement);
+	}
 	
-
-
 	function db_connection($host, $username, $password, $databaseName){
         $conn = mysqli_connect($host, $username, $password, $databaseName);
         // 下面两条语句用来防止中文乱码
@@ -56,4 +46,5 @@
         }
         return $conn; // 返回连接对象
     }
+
  ?>

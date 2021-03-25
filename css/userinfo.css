@@ -25,3 +25,63 @@
 #right input{
 	margin-top: 17px;
 }
+#scrolls::-webkit-scrollbar{
+	display: none;
+}
+#scrolls{
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+.addfood::-webkit-scrollbar{
+	display: none;
+}
+.addfood{
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+
+.error {
+	font-weight: bold;
+	color: #FF0000;
+}
+
+#menu{
+	text-align: center;
+}
+
+.score {
+	font-size:150%;
+	color: #36407F;
+}
+
+.scoreinfo {
+	text-align: left;
+	padding: 0 7.5px;
+	border-bottom: 1px solid #ddd;
+}
+
+#tdimg{
+	width: 200px;
+	height: 151px;
+	padding: 15px 7.5px;
+}
+.ids{
+	border-bottom: 1px solid #ddd;
+	padding-right: 7.5px;
+	border-right: 1px solid #ddd;
+}
+.idss{
+	height: 148px;
+	padding: 15px 7.5px;
+	padding-left: 15px;
+	border-bottom: 1px solid #ddd;
+}
+table{
+	padding: 15px 0;
+	border: 1px solid #ddd;
+}
+
+.modal-body img{
+	max-width: 100%;
+}

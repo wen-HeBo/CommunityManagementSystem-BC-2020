@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+	<link rel="stylesheet" href="../css/adviceMeal.css">
+	<link rel="stylesheet" href="../css/adviceSports.css">  
+</head>
+<body>
+    <div style="display: flex;align-items: center;justify-content: center;">
+		<h2 style="display: flex; margin: 10px auto; text-align: center;">健康建议 
+			<div style="position: absolute; right: 0; padding-right: 30px;">
+				<button class="btn btn-primary" id="health" onclick="$('.maincontent').load('health.html');" style="margin-right: 5px;">健康打卡</button>
+				<button class="btn btn-primary" id="health_data" onclick="$('.maincontent').load('health_data.html');" style="margin-right: 5px;">健康数据</button>
+				<button class="btn btn-primary" id="health_advice" disabled="disabled" style="margin-right: 5px;">健康建议</button>
+			</div>
+		</h2>
+	</div>
+	<div style="display: flex;align-items: center;justify-content: center;">
+		<div id="aMeal" class="container" data-ripple>
+			<h3 id="cMeal" class="card-title">饮食Tips</h3>
+			<section id="wMeal" class="card-wrap">
+				<header >
+					<h4 class="a_f">饮食Tips</h4>
+				</header>
+				<article class="a_f1">
+				</article>
+				<footer>
+					<span id="footer_date" class="icon-clock clock"></span>
+				</footer>
+			</section>
+		</div>
+	
+		<div id="aSports" class="container" data-ripple>
+			<h3 id="cSports" class="card-title">运动Tips</h3>
+			<section id="wSports" class="card-wrap">
+				<header>
+					<h4 class="a_s">运动Tips</h4>
+				</header>
+				<article class="a_s1">
+				</article>
+				<footer>
+					<span id="sport_date" class="icon-clock clock" style="color: black;"></span>
+				</footer>
+			</section>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		var u_login = getCookie('name');
+		console.log(u_login);
+		var t_temp, t_date, t_bmi, t_dbp, t_sbp, t_rate, t_sport, flag = 0;
+		function aTest(){
+			$.ajax({
+				type:"post",
+				async:false,
+				url:"../php/health_data.php",
+				data:{},
+				dataType:"json",
+				success:function(result){
+					if (result){
+						for(var i=result.length-1; i>=0; i--){
+							if (result[i].id == u_login && flag == 0){
+								t_temp = result[i].temp;
+								d = result[i].date;
+								dateStr = d.substring(0,4) + "年 " + d.substring(5,7) + "月 " + d.substring(8,10) + "日";
+								t_date = dateStr;
+								t_bmi = result[i].weight/((result[i].tall/100)^2);
+								t_dbp = result[i].dbp;
+								t_sbp = result[i].sbp;
+								t_rate = result[i].rate;
+								t_sport = result[i].sport;
+								flag = 1;
+								i = -1;
+							}
+						}
+					}
+				}
+			})
+			return t_temp, t_date, t_bmi, t_dbp, t_sbp, t_rate, t_sport;
+		}
+		aTest();
+		console.log(t_date);
+		
+		$("#footer_date").text(t_date);
+		$("#sport_date").text(t_date);
+
+		var s1="", s2="";
+		var s3="<h4>今日是否运动：", s4="";
+
+		$.ajax({
+				type:"post",
+				async:false,
+				url:"../php/advice.php",
+				data:{},
+				dataType:"json",
+				success:function(result){
+					if (result){
+						//体温
+						s1=s1+"<h4>体温：";
+						if (t_temp<36.1){
+							s1=s1+result["low_temp_food"]+"</h4>";
+							s3=s3+result["low_temp_sport"]+"</h4>";
+						}
+						else if(t_temp>37.2){
+							s1=s1+result["high_temp_food"]+"</h4>";
+							s3=s3+result["high_temp_sport"]+"</h4>";
+						}
+						else{
+							s1=s1+"请坚持现在良好的生活习惯!</h4>";
+							s3=s3+"请坚持现在良好的生活习惯!</h4>";
+						}
+
+						//血压
+						s1=s1+"<h4>血压：";
+						s3=s3+"<h4>血压：";
+						if (t_sbp>=140 || t_dbp>=90){
+							s1=s1+result["high_blood_food"]+"</h4>";
+							s3=s3+result["high_blood_sport"]+"</h4>";
+						}
+						else if(t_sbp<=90 || t_dbp<=60){
+							s1=s1+result["low_blood_food"]+"</h4>";
+							s3=s3+result["low_blood_sport"]+"</h4>";
+						}
+						else{
+							s1=s1+"请坚持现在良好的生活习惯!</h4>";
+							s3=s3+"请坚持现在良好的生活习惯!</h4>";
+						}
+
+						//心率
+						s2=s2+"<h4>心率：";
+						s4=s4+"<h4>心率：";
+						if (t_rate>100){
+							s2=s2+result["high_rate_food"]+"</h4>";
+							s4=s4+result["high_rate_sport"]+"</h4>";
+						}
+						else if(t_rate<60){
+							s2=s2+result["low_rate_food"]+"</h4>";
+							s4=s4+result["low_rate_sport"]+"</h4>";
+						}
+						else{
+							s2=s2+"请坚持现在良好的生活习惯！</h4>";
+							s4=s4+"请坚持现在良好的生活习惯!</h4>";
+						}
+
+						//bmi
+						s2=s2+"<h4>BMI：";
+						s4=s4+"<h4>BMI：";
+						if (t_bmi>=24){
+							s2=s2+result["high_bmi_food"]+"</h4>";
+							s4=s4+result["high_bmi_sport"]+"</h4>";
+						}
+						else if(t_bmi<=18.5){
+							s2=s2+result["low_bmi_food"]+"</h4>";
+							s4=s4+result["low_bmi_sport"]+"</h4>";
+						}
+						else{
+							s2=s2+"请坚持现在良好的生活习惯！</h4>";
+							s4=s4+"请坚持现在良好的生活习惯!</h4>";
+						}
+					}
+				}
+			})
+		$(".a_f").html(s1);
+		$(".a_f1").html(s2);
+		$(".a_s").html(s3);
+		$(".a_s1").html(s4);
+	</script>
+</html>

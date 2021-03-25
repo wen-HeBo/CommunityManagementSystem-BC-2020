@@ -2,6 +2,7 @@
 window.onload = initPage;
 
 function initPage() {
+	$(".maincontent").load("main.html");
 	$(".leftmain a").click(function(){
 		var titleAttr = $(this).attr("title");
 
@@ -13,10 +14,12 @@ function initPage() {
 		}
 		else if(titleAttr=="history"){
 			$(".maincontent").load("history.html");
+			
 		}
 
 
 	});
+
 }
 
 function getCookie(c_name){
@@ -90,3 +93,5 @@ $(document).ready(function photo() {
         }
     });
 });
+
+

@@ -8,7 +8,16 @@
 	<title></title>
 </head>
 <body>
-	<h2 style="margin: 10px auto; text-align: center;">健康数据</h2>
+	<div style="display: flex;align-items: center;justify-content: center;">
+		<h2 style="display: flex; margin: 10px auto; text-align: center;">健康打卡 
+			<div style="position: absolute; right: 0; padding-right: 30px;">
+				<button class="btn btn-primary" id="health" disabled="disabled" style="margin-right: 5px;">健康打卡</button>
+				<button class="btn btn-primary" id="health_data" onclick="$('.maincontent').load('health_data.html');" style="margin-right: 5px;">健康数据</button>
+				<button class="btn btn-primary" id="health_advice" onclick="$('.maincontent').load('health_advice.html');" style="margin-right: 5px;">健康建议</button>
+			</div>
+		</h2>
+	</div>
+	
 	<form action="../php/health.php" method="post" accept-charset="utf-8">
 		<div style="padding: 20px; background-color: #F2F2F2;margin: 0 10px;">
 		  	<div class="layui-row layui-col-space15">
@@ -76,23 +85,8 @@
 			</div>
 		</div>
 		<div style="text-align: center;margin: 15px;">
-			<input type="submit" name="submit" value="确认" class="btn btn-default">
+			<input type="submit" name="submit" value="确认" class="btn btn-success">
 		</div>
 	</form>
- 	
-		<!-- <textarea class="layui-textarea" id="LAY_demo1" style="display: none">  
-            把编辑器的初始内容放在这textarea即可
-        </textarea>
-         <script src="../layui/layui.js"></script>
-        <script>
-            layui.use('layedit', function(){
-                var layedit = layui.layedit
-                ,$ = layui.jquery;
-
-                //构建一个默认的编辑器
-                var index = layedit.build('LAY_demo1');
-            });
-        </script> -->
-	<script src="../js/jquery-3.4.1.min.js"></script>
 </body>
 </html>

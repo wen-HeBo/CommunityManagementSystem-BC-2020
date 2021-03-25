@@ -5,79 +5,87 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" href="../layui/css/layui.css">
+	<link rel="stylesheet" href="../css/userinfo.css">
 	<title></title>
 </head>
 <body>
-	<h2 style="margin: 10px auto; text-align: center;">历史订单</h2>
-	<div style="height: 460px; margin-left: 50px;overflow-y: scroll;">
-		<ul class="layui-timeline">
+	<h2 style="margin: 10px auto; text-align: center;">订餐下单</h2>
+	<div style="display: flex;align-items: center;justify-content: center;">
 
-		  <li class="layui-timeline-item">
-		    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t1">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		  <li class="layui-timeline-item">
-		    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t2">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		   <li class="layui-timeline-item">
-		    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t3">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		   <li class="layui-timeline-item">
-		    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t4">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		   <li class="layui-timeline-item">
-		    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t5">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		   <li class="layui-timeline-item">
-		    <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t6">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		  <li class="layui-timeline-item">
-		   <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
-		    <div class="layui-timeline-content layui-text" id="t7">
-		      <h3 class="layui-timeline-title"></h3>
-		      
-		    </div>
-		  </li>
-
-		  <li class="layui-timeline-item">
-		      <button type="button" id="all"><i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i></button>
-		    <div class="layui-timeline-content layui-text">
-		      <div class="layui-timeline-title">过去</div>
-		    </div>
-		  </li>
-		</ul>
+		<div style="margin-right: 18%;">
+			<h3 style="margin: 10px;color:  #337ae4">历史订单</h3>
+			<div id="scrolls" style="height: 400px;overflow-y: scroll;">
+				<ul class="layui-timeline">
+					  <li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t1">
+							 <h3 class="layui-timeline-title"></h3>
+						   </div>
+				  </li>
+		
+					  <li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t2">
+							 <h3 class="layui-timeline-title"></h3>
+						 </div>
+				  </li>
+		
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t3">
+							 <h3 class="layui-timeline-title"></h3>
+						  </div>
+				   </li>
+		
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t4">
+							<h3 class="layui-timeline-title"></h3>
+						  </div>
+				   </li>
+		
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t5">
+							<h3 class="layui-timeline-title"></h3>
+					   </div>
+				   </li>
+		
+					<li class="layui-timeline-item">
+						<i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t6">
+							<h3 class="layui-timeline-title"></h3>
+						</div>
+					  </li>
+		
+					<li class="layui-timeline-item">
+						   <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
+						<div class="layui-timeline-content layui-text" id="t7">
+							  <h3 class="layui-timeline-title"></h3>
+						</div>
+					  </li>
+		
+					<li class="layui-timeline-item">
+						  <button type="button" id="all"><i class="layui-icon layui-anim layui-anim-rotate layui-anim-loop layui-timeline-axis"></i></button>
+						<div class="layui-timeline-content layui-text">
+							<div class="layui-timeline-title">
+								过去  
+							</div>
+						</div>
+					  </li>
+		
+				</ul>
+			</div>
+		</div>
+		<div>
+			<h3 style="margin: 10px;color:  #337ae4;text-align: center;">选购餐品
+				<input type="button" class="btn btn-primary" style="position: absolute; right: 6%;" id="orderFood" value="下单" >
+			</h3>
+			<div class="addfood" style="height: 400px;overflow-y: scroll;"></div>
+		</div>
+		
 	</div>
-	<script src="../layui/layui.js" charset="utf-8"></script>
-	<script src="../js/jquery-3.4.1.min.js"></script>
-	<script src="../js/history.js"></script>
+	
+	<script type="text/javascript" src="../js/history.js"></script>
 </body>
 </html>
