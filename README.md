@@ -8,7 +8,6 @@
 ├─css&emsp;//样式文件  
 ├─database&emsp;//数据库  
 &nbsp;|&emsp;&emsp;├─database.sql&emsp;//数据库导入文件<br>
-&nbsp;|&emsp;&emsp;├─ER图.png&emsp;//数据库ER图 <br>
 &nbsp;|&emsp;&emsp;└─[DATABASE.md](database/DATABASE.md)&emsp;//数据库说明 <br>
 ├─html&emsp;//html页面<br> 
 ├─images&emsp;//图片<br>

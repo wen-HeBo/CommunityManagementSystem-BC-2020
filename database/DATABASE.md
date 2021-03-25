@@ -5,7 +5,7 @@
 > $DB_USER = 'root';  
 > $DB_PASSWORD = '';  
 > $DB_NAME = 'database';  
----
+
 
 ## ER图
 ![ER图](../images/ER图.png)  
